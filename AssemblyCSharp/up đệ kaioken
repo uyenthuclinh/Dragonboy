@@ -1,0 +1,38 @@
+///up đệ kaioken như của gamehub :3
+
+
+// thêm lệnh này vô onchatfromme;
+if (text == "akok")
+		{
+			GameScr.Kaioken_PET = !GameScr.Kaioken_PET;
+			new Thread(new ThreadStart(GameScr.SkillKaioken_PET)).Start();
+			GameScr.info1.addInfo("Up đệ Kaioken: " + (GameScr.Kaioken_PET ? "Bật" : "Tắt"), 0);
+			text = string.Empty;
+      
+  // kéo xuống kiếm chỗ có public static void dán đại vô là dc =))
+    public static void SkillKaioken_PET()
+	{
+		while (GameScr.Kaioken_PET)
+		{
+			if (!global::Char.myCharz().meDead)
+			{
+				if (GameScr.Kaioken)
+				{
+					global::Char.myCharz().cy = global::Char.myCharz().cy - 1;
+					Service.gI().charMove();
+				}
+				else
+				{
+					global::Char.myCharz().cy = global::Char.myCharz().cy + 1;
+					Service.gI().charMove();
+				}
+			}
+			Thread.Sleep(1100);
+			GameScr.Kaioken = !GameScr.Kaioken;
+		}
+	}
+      
+// 2 dòng này thêm ở cuối cùng =))
+  public static bool Kaioken_PET;
+	public static bool Kaioken;
+
